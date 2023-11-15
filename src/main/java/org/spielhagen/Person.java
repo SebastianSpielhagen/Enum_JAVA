@@ -6,7 +6,9 @@
 package org.spielhagen;
 
 // Definition der 'Person' Record-Klasse
-public record Person(int id, String name, DayOfWeek favoriteDay) {}
+// Jetzt hat die Person-Record neben der ID, dem Namen und dem Lieblingstag auch ein Geschlecht. Das Geschlecht ist
+// vom Typ Gender, einem Enum, das die Werte MALE, FEMALE und DIVERSE hat.
+public record Person(int id, String name, DayOfWeek favoriteDay, Gender gender) {}
 
 /**
  * Die Person-Klasse ist hier als ein record definiert. Ein Record ist eine spezielle Art von Klasse in Java,

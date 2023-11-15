@@ -21,9 +21,9 @@ public class Main {
 
         // Nun fügen wir drei Personen zum Repository hinzu. Jede Person hat eine eindeutige ID,
         // einen Namen und einen Lieblingstag der Woche.
-        repository.addPerson(new Person(1, "Sebastian", DayOfWeek.MONTAG));
-        repository.addPerson(new Person(2, "Marianna", DayOfWeek.SONNTAG));
-        repository.addPerson(new Person(3, "Sergej", DayOfWeek.FREITAG));
+        repository.addPerson(new Person(1, "Sebastian", DayOfWeek.MONTAG, Gender.MALE));
+        repository.addPerson(new Person(2, "Marianna", DayOfWeek.SONNTAG, Gender.FEMALE));
+        repository.addPerson(new Person(3, "Sergej", DayOfWeek.FREITAG, Gender.DIVERSE));
 
         // Wir durchlaufen die IDs 1 bis 3 mit einer for-Schleife.
         for (int id = 1; id <= 3; id++) {
@@ -33,9 +33,12 @@ public class Main {
 
             // Optional.ifPresent wird verwendet, um einen Codeblock auszuführen, wenn das Optional einen Wert enthält.
             // In diesem Fall geben wir den Namen der Person und den Typ ihres Lieblingstags aus, wenn die Person gefunden wurde.
+            // In diesem Code wird nun auch das Geschlecht jeder Person ausgegeben. Da das Geschlecht ein Enum-Wert ist,
+            // wird die Methode p.gender() die Enum-Konstante (MALE, FEMALE oder DIVERSE) zurückgeben.
             person.ifPresent(p -> {
                 System.out.println("Name: " + p.name());
                 System.out.println("Lieblingstag: " + Weekend.getDayType(p.favoriteDay()));
+                System.out.println("Geschlecht: " + p.gender());
             });
         }
     }
